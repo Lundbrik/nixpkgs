@@ -476,6 +476,7 @@ in
           # hardware acceleration set up outside of NixOS configuration
           PrivateDevices = mkDefault false;
           DeviceAllow = mkIf cfg.hardwareAcceleration.enable [ "${cfg.hardwareAcceleration.device} rw" ];
+          DevicePolicy = mkIf cfg.hardwareAcceleration.enable "closed";
           PrivateUsers = true;
           RemoveIPC = true;
 
